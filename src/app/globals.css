@@ -3,11 +3,23 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Luxury Color Palette */
+  --primary: #1a1a1a;
+  --secondary: #8b7355;
+  --tertiary: #f5f5f0;
+  --quaternary: #2c2c2c;
+  --quinary: #d4af37;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-tertiary: var(--tertiary);
+  --color-quaternary: var(--quaternary);
+  --color-quinary: var(--quinary);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
