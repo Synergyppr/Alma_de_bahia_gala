@@ -131,9 +131,9 @@ export default function Gallery() {
         </button>
 
         {/* Image Counter */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-primary/80 px-4 py-2 text-sm text-tertiary font-light tracking-wide">
+        {/* <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-primary/80 px-4 py-2 text-sm text-tertiary font-light tracking-wide">
           {currentIndex + 1} / {galleryImages.length}
-        </div>
+        </div> */}
       </div>
 
       {/* Thumbnail Navigation */}

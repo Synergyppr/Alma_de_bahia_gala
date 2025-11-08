@@ -22,13 +22,13 @@ export default function Header() {
                 </a>
               </li>
               <li>
-                <a href="#gallery" className="transition-colors hover:text-secondary">
-                  Gallery
+                <a href="#mission" className="transition-colors hover:text-secondary">
+                  Mission
                 </a>
               </li>
               <li>
-                <a href="#contact" className="transition-colors hover:text-secondary">
-                  Contact
+                <a href="#sponsorship" className="transition-colors hover:text-secondary">
+                  Sponsor
                 </a>
               </li>
             </ul>
@@ -53,13 +53,13 @@ export default function Header() {
                 </a>
               </li>
               <li>
-                <a href="#gallery" className="transition-colors hover:text-secondary">
-                  Gallery
+                <a href="#mission" className="transition-colors hover:text-secondary">
+                  Mission
                 </a>
               </li>
               <li>
-                <a href="#contact" className="transition-colors hover:text-secondary">
-                  Contact
+                <a href="#sponsorship" className="transition-colors hover:text-secondary">
+                  Sponsor
                 </a>
               </li>
             </ul>

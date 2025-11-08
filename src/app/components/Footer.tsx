@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="w-full border-t border-secondary/20 bg-primary text-tertiary">
+    <footer className="w-full  bg-gradient-to-t from-primary to-quaternary text-tertiary">
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
           <p className="text-sm font-light tracking-wide">

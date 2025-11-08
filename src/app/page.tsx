@@ -1,7 +1,14 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import ContactForm from "./components/ContactForm";
+import MissionSection from "./components/MissionSection";
+import EveningSection from "./components/EveningSection";
+import LeadershipSection from "./components/LeadershipSection";
+import PillarsSection from "./components/PillarsSection";
+import TableLevels from "./components/TableLevels";
+import LegacyFooter from "./components/LegacyFooter";
 import Gallery from "./components/Gallery";
+import HeroBanner from "./components/HeroBanner";
+import ContactForm from "./components/ContactForm";
 
 export default function Home() {
   return (
@@ -9,23 +16,33 @@ export default function Home() {
       <Header />
 
       <main className="flex-1">
-        {/* Main content section - placeholder for future content */}
-        <section id="home" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-5xl font-light tracking-wider text-primary sm:text-6xl lg:text-7xl mb-6">
-              Welcome to the Paulson Gala
-            </h1>
-            <p className="mx-auto max-w-2xl text-lg font-light tracking-wide text-quaternary/80">
-              An exclusive evening of elegance and sophistication
-            </p>
-          </div>
-        </section>
+        {/* Hero Banner - Where Soul Meets Purpose */}
+        <HeroBanner />
+        <section id="home">{/* <AlmaHeroBanner /> */}</section>
+
+        {/* Mission - The Heart of Alma de Bahía */}
+        <MissionSection />
+
+        {/* Evening Under the Stars with Four Seasons */}
+        <EveningSection />
+
+        {/* Leadership - Guided by Visionaries */}
+        <LeadershipSection />
+
+        {/* Pillars of Purpose */}
+        <PillarsSection />
+
+        {/* Sponsorship Levels - Join the Circle of Giving */}
+        <TableLevels />
 
         {/* Gallery Section */}
         <Gallery />
 
-        {/* Contact Form Section - positioned above the footer */}
+        {/* Contact Form Section */}
         <ContactForm />
+
+        {/* Legacy Footer - Be Part of the Legacy */}
+        <LegacyFooter />
       </main>
 
       <Footer />
