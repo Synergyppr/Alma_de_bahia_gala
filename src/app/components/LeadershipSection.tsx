@@ -1,9 +1,6 @@
-export default function LeadershipSection() {
-  const chairs = [
-    { name: "John Paulson" },
-    { name: "Alina de Almeida" }
-  ];
+import Image from "next/image";
 
+export default function LeadershipSection() {
   const coChairs = [
     { names: "Marc & Stephanie Grossman" },
     { names: "Scott & Laurene Sperling" },
@@ -23,23 +20,26 @@ export default function LeadershipSection() {
             We are honored to be led by the following Chairs and Co-Chairs
           </p>
 
-          {/* Chairs Section */}
+          {/* Chairs Section - Single Centered Image */}
           <div className="space-y-8 sm:space-y-10">
             <h3 className="text-xl sm:text-2xl md:text-3xl font-light tracking-wider text-secondary uppercase">
               Chairs
             </h3>
-            <div className="flex flex-wrap justify-center gap-8 sm:gap-12 md:gap-16">
-              {chairs.map((chair, index) => (
-                <div key={index} className="flex flex-col items-center space-y-4">
-                  {/* Placeholder for headshot - can be replaced with actual images */}
-                  <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full bg-tertiary border-2 border-secondary/20 flex items-center justify-center">
-                    <span className="text-sm text-quaternary/50 font-light">Photo</span>
-                  </div>
-                  <p className="text-base sm:text-lg md:text-xl font-light tracking-wide text-primary">
-                    {chair.name}
-                  </p>
+            <div className="flex justify-center">
+              <div className="flex flex-col items-center space-y-4">
+                <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden border-2 border-secondary/20">
+                  <Image
+                    src="/lidership.png"
+                    alt="Leadership"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 192px, (max-width: 1024px) 224px, 256px"
+                  />
                 </div>
-              ))}
+                <p className="text-base sm:text-lg md:text-xl font-light tracking-wide text-primary text-center">
+                  John Paulson & Alina de Almeida
+                </p>
+              </div>
             </div>
           </div>
 

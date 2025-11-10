@@ -123,13 +123,13 @@ export default function TableLevels() {
         <div className="mt-12 sm:mt-16 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
           <a
             href="mailto:BBR_memberships@bahiapr.com"
-            className="inline-flex items-center justify-center px-8 sm:px-10 py-3 sm:py-4 text-sm sm:text-base font-light tracking-widest bg-secondary text-white hover:bg-secondary/90 transition-all duration-300 min-w-60 sm:min-w-[280px]"
+            className="inline-flex items-center justify-center px-8 sm:px-10 py-3 sm:py-4 text-sm sm:text-base font-light tracking-widest bg-linear-to-br from-tertiary via-[#e8f4f0] to-[#d4e8e0] text-secondary hover:opacity-90 transition-all duration-300 min-w-60 sm:min-w-[280px]"
           >
             INQUIRE ABOUT SPONSORSHIP
           </a>
           <a
             href="tel:+17878098870"
-            className="inline-flex items-center justify-center px-8 sm:px-10 py-3 sm:py-4 text-sm sm:text-base font-light tracking-widest border-2 border-secondary text-secondary hover:bg-secondary hover:text-white transition-all duration-300 min-w-60 sm:min-w-[280px]"
+            className="inline-flex items-center justify-center px-8 sm:px-10 py-3 sm:py-4 text-sm sm:text-base font-light tracking-widest bg-linear-to-br from-tertiary via-[#e8f4f0] to-[#d4e8e0] text-secondary hover:opacity-90 transition-all duration-300 min-w-60 sm:min-w-[280px]"
           >
             CALL FOR DETAILS
           </a>

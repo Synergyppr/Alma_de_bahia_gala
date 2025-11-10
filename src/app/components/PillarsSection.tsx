@@ -66,34 +66,42 @@ export default function PillarsSection() {
           </p>
 
           {/* Pillars Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 pt-8">
-            {pillars.map((pillar, index) => (
-              <div
-                key={index}
-                className={`bg-white p-6 sm:p-8 rounded-sm shadow-sm hover:shadow-md transition-shadow ${
-                  index === 4 ? 'md:col-span-2 lg:col-span-1' : ''
-                }`}
-              >
-                <div className="space-y-4">
-                  {/* Pillar Number */}
-                  <div className="flex items-center gap-4">
-                    <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-secondary/10 border border-secondary/20">
-                      <span className="text-xl sm:text-2xl font-light text-secondary">
-                        {pillar.number}
-                      </span>
-                    </div>
-                    <h3 className="text-base sm:text-lg md:text-xl font-light tracking-wide text-primary flex-1">
-                      {pillar.title}
-                    </h3>
-                  </div>
+          <div className="grid grid-cols-1 lg:grid-cols-6 gap-6 sm:gap-8 lg:gap-10 pt-8">
+            {pillars.map((pillar, index) => {
+              // Define grid positioning for desktop staggered layout
+              let gridClasses = '';
+              if (index === 0) gridClasses = 'lg:col-span-2 lg:col-start-1'; // Pillar 1: cols 1-2
+              else if (index === 1) gridClasses = 'lg:col-span-2 lg:col-start-3'; // Pillar 2: cols 3-4
+              else if (index === 2) gridClasses = 'lg:col-span-2 lg:col-start-5'; // Pillar 3: cols 5-6
+              else if (index === 3) gridClasses = 'lg:col-span-2 lg:col-start-2'; // Pillar 4: cols 2-3 (between 1 and 2)
+              else if (index === 4) gridClasses = 'lg:col-span-2 lg:col-start-4'; // Pillar 5: cols 4-5 (between 2 and 3)
 
-                  {/* Pillar Description */}
-                  <p className="text-sm sm:text-base font-light leading-relaxed text-quaternary/80 pl-14">
-                    {pillar.description}
-                  </p>
+              return (
+                <div
+                  key={index}
+                  className={`bg-white p-6 sm:p-8 rounded-sm shadow-sm hover:shadow-md transition-shadow ${gridClasses}`}
+                >
+                  <div className="space-y-4">
+                    {/* Pillar Number */}
+                    <div className="flex items-center gap-4">
+                      <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-secondary/10 border border-secondary/20">
+                        <span className="text-xl sm:text-2xl font-light text-secondary">
+                          {pillar.number}
+                        </span>
+                      </div>
+                      <h3 className="text-base sm:text-lg md:text-xl font-light tracking-wide text-primary flex-1">
+                        {pillar.title}
+                      </h3>
+                    </div>
+
+                    {/* Pillar Description */}
+                    <p className="text-sm sm:text-base font-light leading-relaxed text-quaternary/80 pl-14">
+                      {pillar.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

@@ -14,21 +14,30 @@ export default function Header() {
             priority
             className="h-auto w-48"
           />
-          <nav>
-            <ul className="flex gap-6 text-sm font-light tracking-wide text-quaternary">
+          <nav className="w-full">
+            <ul className="flex justify-center gap-4 sm:gap-6 text-xs sm:text-sm font-light tracking-wide text-quaternary">
               <li>
-                <a href="#home" className="transition-colors hover:text-secondary">
+                <a
+                  href="#home"
+                  className="transition-colors hover:text-secondary text-center"
+                >
                   Home
                 </a>
               </li>
               <li>
-                <a href="#mission" className="transition-colors hover:text-secondary">
-                  Mission
+                <a
+                  href="#mission"
+                  className="transition-colors hover:text-secondary text-center"
+                >
+                  Pillars of Purpose
                 </a>
               </li>
               <li>
-                <a href="#sponsorship" className="transition-colors hover:text-secondary">
-                  Sponsor
+                <a
+                  href="#sponsorship"
+                  className="transition-colors hover:text-secondary text-center"
+                >
+                  Circle of Giving
                 </a>
               </li>
             </ul>
@@ -46,20 +55,29 @@ export default function Header() {
             className="h-auto w-22 lg:w-32"
           />
           <nav>
-            <ul className="flex gap-8 text-sm font-light tracking-wide text-quaternary">
+            <ul className="flex gap-6 md:gap-8 lg:gap-12 xl:gap-16 text-sm lg:text-base font-light tracking-wide text-quaternary">
               <li>
-                <a href="#home" className="transition-colors hover:text-secondary">
+                <a
+                  href="#home"
+                  className="transition-colors hover:text-secondary whitespace-nowrap"
+                >
                   Home
                 </a>
               </li>
               <li>
-                <a href="#mission" className="transition-colors hover:text-secondary">
-                  Mission
+                <a
+                  href="#mission"
+                  className="transition-colors hover:text-secondary whitespace-nowrap"
+                >
+                  Pillars of Purpose
                 </a>
               </li>
               <li>
-                <a href="#sponsorship" className="transition-colors hover:text-secondary">
-                  Sponsor
+                <a
+                  href="#sponsorship"
+                  className="transition-colors hover:text-secondary whitespace-nowrap"
+                >
+                  Circle of Giving
                 </a>
               </li>
             </ul>

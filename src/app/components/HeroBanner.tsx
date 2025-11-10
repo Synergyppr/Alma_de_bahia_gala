@@ -1,28 +1,83 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
+const carouselImages = [
+  "/gallery/IMG_3596.jpg",
+  "/gallery/IMG_3695.jpg",
+  "/gallery/DSCF4351.JPG"
+];
+
 export default function HeroBanner() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Auto-advance carousel every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === carouselImages.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative w-full">
-      {/* Hero Image Container */}
-      <div className="relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[800px] w-full bg-tertiary">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="relative h-full w-full max-w-7xl">
-            <Image
-              src="/johnpaulson.jpg"
-              alt="John Paulson"
-              fill
-              priority
-              className="object-contain"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-            />
-          </div>
+      {/* Title Banner - Positioned at top with gradient background */}
+      <div className="relative z-20 bg-linear-to-br from-tertiary via-[#e8f4f0] to-[#d4e8e0] py-6 sm:py-8 md:py-10 lg:py-12">
+        <h1 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light tracking-wider text-primary">
+          Alma de Bahía Foundation Gala
+        </h1>
+      </div>
+
+      {/* Carousel Container */}
+      <div className="relative h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px] xl:h-[500px] w-full bg-tertiary overflow-hidden">
+        {/* Carousel Images */}
+        <div className="relative h-full w-full">
+          <Image
+            key={currentIndex}
+            src={carouselImages[currentIndex]}
+            alt={`Gala Image ${currentIndex + 1}`}
+            fill
+            priority
+            className="object-cover md:object-contain animate-fade-in"
+            sizes="100vw"
+          />
         </div>
 
-        {/* Title Banner Overlay */}
-        <div className="absolute bottom-0 left-0 right-0 bg-secondary/95 py-6 sm:py-8 md:py-10 lg:py-12">
-          <h1 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light tracking-wider text-white">
-            Alma de Bahía Foundation Gala
-          </h1>
+        {/* Navigation Buttons */}
+        {/* <button
+          onClick={goToPrevious}
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-primary/80 p-2 sm:p-3 text-tertiary transition-all hover:bg-primary"
+          aria-label="Previous image"
+        >
+          <IoChevronBack size={20} className="sm:w-6 sm:h-6" />
+        </button> */}
+
+        {/* <button
+          onClick={goToNext}
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-primary/80 p-2 sm:p-3 text-tertiary transition-all hover:bg-primary"
+          aria-label="Next image"
+        >
+          <IoChevronForward size={20} className="sm:w-6 sm:h-6" />
+        </button> */}
+
+        {/* Carousel Indicators */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+          {carouselImages.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`h-2 rounded-full transition-all ${
+                index === currentIndex
+                  ? "w-8 bg-secondary"
+                  : "w-2 bg-white/50 hover:bg-white/75"
+              }`}
+              aria-label={`Go to image ${index + 1}`}
+            />
+          ))}
         </div>
       </div>
 
@@ -61,15 +116,30 @@ export default function HeroBanner() {
             </p>
 
             {/* CTA Button */}
-            <a
+            {/* <a
               href="#contact"
               className="group relative inline-flex items-center gap-2 border-b-2 border-primary px-6 py-3 text-sm sm:text-base md:text-lg font-light tracking-widest text-primary transition-all hover:border-secondary hover:text-secondary"
             >
               PURCHASE TICKETS HERE
-            </a>
+            </a> */}
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+
+        .animate-fade-in {
+          animation: fade-in 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+      `}</style>
     </section>
   );
 }
