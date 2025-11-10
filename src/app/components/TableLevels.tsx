@@ -1,4 +1,22 @@
 export default function TableLevels() {
+  const recipientEmail = "christian.agosto@syn.paulsonpuertorico.com";
+
+  const createMailtoLink = (level: string, price: string) => {
+    const subject = `Inquiry About ${level} Sponsorship - Alma de Bahía Foundation Gala`;
+    const body = `Dear Alma de Bahía Foundation Team,
+
+My name is [Your Name Here], and I am interested in inquiring about the ${level} sponsorship level (${price}) for the Alma de Bahía Foundation Gala on December 6, 2025.
+
+I would appreciate more information about this sponsorship opportunity and how I can support this meaningful cause.
+
+Thank you for your time, and I look forward to hearing from you.
+
+Best regards,
+[Your Name Here]`;
+
+    return `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
   const levels = [
     {
       title: "Co-Chair",
@@ -108,7 +126,7 @@ export default function TableLevels() {
               {/* Optional: Contact CTA */}
               <div className="mt-8 pt-6 border-t border-secondary/20">
                 <a
-                  href="mailto:BBR_memberships@bahiapr.com"
+                  href={createMailtoLink(level.title, level.price)}
                   className="inline-flex items-center gap-2 text-sm sm:text-base font-light tracking-wider text-secondary hover:text-primary transition-colors"
                 >
                   <span>INQUIRE ABOUT THIS LEVEL</span>
@@ -122,7 +140,20 @@ export default function TableLevels() {
         {/* CTA Buttons */}
         <div className="mt-12 sm:mt-16 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
           <a
-            href="mailto:BBR_memberships@bahiapr.com"
+            href={(() => {
+              const subject = "General Sponsorship Inquiry - Alma de Bahía Foundation Gala";
+              const body = `Dear Alma de Bahía Foundation Team,
+
+My name is [Your Name Here], and I am interested in learning more about sponsorship opportunities for the Alma de Bahía Foundation Gala on December 6, 2025.
+
+I would appreciate more information about the available sponsorship levels and how I can support this meaningful cause.
+
+Thank you for your time, and I look forward to hearing from you.
+
+Best regards,
+[Your Name Here]`;
+              return `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            })()}
             className="inline-flex items-center justify-center px-8 sm:px-10 py-3 sm:py-4 text-sm sm:text-base font-light tracking-widest bg-linear-to-br from-tertiary via-[#e8f4f0] to-[#d4e8e0] text-secondary hover:opacity-90 transition-all duration-300 min-w-60 sm:min-w-[280px]"
           >
             INQUIRE ABOUT SPONSORSHIP

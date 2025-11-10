@@ -43,20 +43,20 @@ export async function POST(request: NextRequest) {
     };
 
     // TODO: Replace this URL with the actual API endpoint provided by the user
-    // const externalApiUrl = "YOUR_API_URL_HERE";
+    const externalApiUrl =
+      "https://synergymwprod-hdbrdrhpawachjbx.eastus-01.azurewebsites.net/api/PaulsonPuertoRico/PaulsonPuertoRicoCreateAndSendForm";
 
-    // Example of how the external API call will work:
-    // const externalResponse = await fetch(externalApiUrl, {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(formDataObject),
-    // });
+    const externalResponse = await fetch(externalApiUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formDataObject),
+    });
 
-    // if (!externalResponse.ok) {
-    //   throw new Error("Failed to send data to external API");
-    // }
+    if (!externalResponse.ok) {
+      throw new Error("Failed to send data to external API");
+    }
 
     // For now, just log the data (remove this when external API is configured)
     console.log("Contact form submission:", formDataObject);
