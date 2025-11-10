@@ -33,7 +33,7 @@ Best regards,
       title: "Platinum",
       price: "$25,000",
       benefits: [
-        "Priority placement for 6 guests",
+        "Priority placement for 16 guests",
         "Recognition in press releases and event signage",
         "Logo on website, printed program, and sponsor artwork"
       ]
@@ -94,8 +94,9 @@ Best regards,
         </div>
 
         {/* Levels Grid */}
+        {/* First 4 levels in 2x2 grid on desktop */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-          {levels.map((level, index) => (
+          {levels.slice(0, 4).map((level, index) => (
             <div
               key={index}
               className="relative bg-linear-to-br from-tertiary via-[#e8f4f0] to-[#d4e8e0] p-8 sm:p-10 md:p-12 rounded-sm shadow-sm hover:shadow-md transition-shadow"
@@ -135,6 +136,52 @@ Best regards,
               </div>
             </div>
           ))}
+        </div>
+
+        {/* 5th level centered below on desktop */}
+        <div className="mt-8 lg:mt-12 flex justify-center">
+          <div className="w-full lg:w-1/2 lg:max-w-[calc(50%-1.5rem)]">
+            {levels.slice(4).map((level, index) => (
+              <div
+                key={index + 4}
+                className="relative bg-linear-to-br from-tertiary via-[#e8f4f0] to-[#d4e8e0] p-8 sm:p-10 md:p-12 rounded-sm shadow-sm hover:shadow-md transition-shadow"
+              >
+                {/* Level Header */}
+                <div className="mb-8 border-b border-secondary/30 pb-6">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-light tracking-wider text-primary mb-3">
+                    {level.title}
+                  </h3>
+                  <p className="text-3xl sm:text-4xl md:text-5xl font-light tracking-wide text-secondary">
+                    {level.price}
+                  </p>
+                </div>
+
+                {/* Benefits List */}
+                <ul className="space-y-3 sm:space-y-4">
+                  {level.benefits.map((benefit, benefitIndex) => (
+                    <li
+                      key={benefitIndex}
+                      className="flex items-start gap-3 text-xs sm:text-sm md:text-base font-light leading-relaxed text-quaternary/90"
+                    >
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-secondary" />
+                      <span>{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Optional: Contact CTA */}
+                <div className="mt-8 pt-6 border-t border-secondary/20">
+                  <a
+                    href={createMailtoLink(level.title, level.price)}
+                    className="inline-flex items-center gap-2 text-sm sm:text-base font-light tracking-wider text-secondary hover:text-primary transition-colors"
+                  >
+                    <span>INQUIRE ABOUT THIS LEVEL</span>
+                    <span className="text-lg">&rarr;</span>
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* CTA Buttons */}
