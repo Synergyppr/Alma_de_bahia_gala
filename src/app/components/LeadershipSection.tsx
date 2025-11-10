@@ -4,7 +4,7 @@ export default function LeadershipSection() {
   const coChairs = [
     { names: "Marc & Stephanie Grossman" },
     { names: "Scott & Laurene Sperling" },
-    { names: "Russ & Lori Scaramella" }
+    { names: "Russ & Lori Scaramella" },
   ];
 
   return (
@@ -37,7 +37,7 @@ export default function LeadershipSection() {
                   />
                 </div>
                 <p className="text-base sm:text-lg md:text-xl font-light tracking-wide text-primary text-center">
-                  John Paulson & Alina de Almeida
+                  Alina De Almeida & John Paulson
                 </p>
               </div>
             </div>
@@ -50,7 +50,10 @@ export default function LeadershipSection() {
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto">
               {coChairs.map((coChair, index) => (
-                <div key={index} className="flex items-center justify-center py-4 px-6 border-l-2 border-secondary/30">
+                <div
+                  key={index}
+                  className="flex items-center justify-center py-4 px-6 border-l-2 border-secondary/30"
+                >
                   <p className="text-base sm:text-lg md:text-xl font-light tracking-wide text-primary text-center">
                     {coChair.names}
                   </p>
