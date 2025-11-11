@@ -6,7 +6,7 @@ import Image from "next/image";
 const carouselImages = [
   "/gallery/IMG_3596.jpg",
   "/gallery/IMG_3695.jpg",
-  "/gallery/DSCF4351.JPG"
+  "/gallery/DSCF4351.JPG",
 ];
 
 export default function HeroBanner() {
@@ -26,11 +26,11 @@ export default function HeroBanner() {
   return (
     <section className="relative w-full">
       {/* Title Banner - Positioned at top with gradient background */}
-      <div className="relative z-20 bg-linear-to-br from-tertiary via-[#e8f4f0] to-[#d4e8e0] py-6 sm:py-8 md:py-10 lg:py-12">
+      {/* <div className="relative z-20 bg-linear-to-br from-tertiary via-[#e8f4f0] to-[#d4e8e0] py-6 sm:py-8 md:py-10 lg:py-12">
         <h1 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light tracking-wider text-primary">
           Alma de Bahía Foundation Gala
         </h1>
-      </div>
+      </div> */}
 
       {/* Carousel Container */}
       <div className="relative h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px] xl:h-[500px] w-full bg-tertiary overflow-hidden">
@@ -81,9 +81,38 @@ export default function HeroBanner() {
         </div>
       </div>
 
+      {/* Logo Section - Commented for background version */}
+      <div className="bg-white pt-12 sm:pt-16 md:pt-20 lg:pt-24 pb-8 sm:pb-10 md:pb-12">
+        <div className="mx-auto max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg px-4">
+          <div className="relative w-full aspect-square">
+            <Image
+              src="/logo2.png"
+              alt="Alma de Bahía Foundation Logo"
+              fill
+              className="object-contain"
+              sizes="(max-width: 640px) 320px, (max-width: 768px) 384px, (max-width: 1024px) 448px, 512px"
+            />
+          </div>
+        </div>
+      </div>
+
       {/* Event Details Section */}
-      <div className="bg-white py-12 sm:py-16 md:py-20 lg:py-24">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div className="relative bg-white py-12 sm:py-16 md:py-20 lg:py-24">
+        {/* Background Logo */}
+        {/* <div className="absolute inset-0 flex items-center justify-center opacity-15">
+          <div className="relative w-3/4 sm:w-2/3 md:w-1/2 lg:w-2/5 xl:w-1/3 aspect-square">
+            <Image
+              src="/logo2.png"
+              alt="Alma de Bahía Foundation Logo Background"
+              fill
+              className="object-contain"
+              sizes="(max-width: 640px) 75vw, (max-width: 768px) 66vw, (max-width: 1024px) 50vw, (max-width: 1280px) 40vw, 33vw"
+            />
+          </div>
+        </div> */}
+
+        {/* Content Layer */}
+        <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center gap-8 sm:gap-10 md:gap-12 text-center">
             {/* Tagline */}
             <p className="text-xl sm:text-2xl md:text-3xl font-light tracking-[0.2em] text-secondary uppercase">
@@ -112,7 +141,10 @@ export default function HeroBanner() {
 
             {/* Description */}
             <p className="max-w-3xl text-xs sm:text-sm md:text-base font-light leading-relaxed tracking-wide text-quaternary/80 px-4">
-              An intimate, meaningful evening where nature, purpose, and community come together. Your presence helps shape the legacy of Alma de Bahía and drives lasting impact for Puerto Rico&apos;s environment and people.
+              An intimate, meaningful evening where nature, purpose, and
+              community come together. Your presence helps shape the legacy of
+              Alma de Bahía and drives lasting impact for Puerto Rico&apos;s
+              environment and people.
             </p>
 
             {/* CTA Button */}
