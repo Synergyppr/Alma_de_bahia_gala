@@ -5,6 +5,7 @@ import EveningSection from "./components/EveningSection";
 import LeadershipSection from "./components/LeadershipSection";
 import PillarsSection from "./components/PillarsSection";
 import TableLevels from "./components/TableLevels";
+import CircleOfGiving from "./components/CircleOfGiving";
 import LegacyFooter from "./components/LegacyFooter";
 import Gallery from "./components/Gallery";
 import HeroBanner from "./components/HeroBanner";
@@ -33,7 +34,10 @@ export default function Home() {
         <PillarsSection />
 
         {/* Sponsorship Levels - Join the Circle of Giving */}
-        <TableLevels />
+        {/* <TableLevels /> */}
+
+        {/* Sponsorship - Circle of Giving */}
+        <CircleOfGiving />
 
         {/* Gallery Section */}
         <Gallery />
