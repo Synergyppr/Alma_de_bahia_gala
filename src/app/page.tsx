@@ -48,7 +48,6 @@ export default function Home() {
         {/* Legacy Footer - Be Part of the Legacy */}
         <LegacyFooter />
       </main>
-
       <Footer />
     </div>
   );
