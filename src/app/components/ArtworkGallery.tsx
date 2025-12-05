@@ -22,6 +22,19 @@ interface ArtworkItem {
   pieces: ArtworkPiece[];
 }
 
+interface Experience {
+  id: number;
+  title: string;
+  subtitle: string;
+  description: string;
+  image?: string;
+  images?: string[];
+  includes: string[];
+  value?: string;
+  disclaimer?: string;
+  valueNote?: string;
+}
+
 const artworks: ArtworkItem[] = [
   {
     id: 1,
@@ -120,42 +133,25 @@ const artworks: ArtworkItem[] = [
   },
 ];
 
-const experiences = [
+const experiences: Experience[] = [
   {
     id: 6,
-    title: "Four Seasons Hotel Gresham Palace Budapest",
-    subtitle: "European Luxury Getaway",
+    title: "A Week of a European Getaway",
+    subtitle: "Paris & Budapest",
     description:
-      "Escape to the heart of Europe with a stay at the Four Seasons Hotel Gresham Palace Budapest, a majestic Art Nouveau palace resting on the banks of the Danube River, right beside the iconic Chain Bridge. The elegance of the building, combined with refined Four Seasons hospitality and panoramic city-and-river views, make this the ideal luxurious getaway for art lovers, romantic escapes, or cultural adventurers. Whether you stroll across historic bridges, explore nearby architecture, or relax in supreme comfort, this experience brings together heritage, luxury and serenity in the heart of Budapest.",
-    image: "/soulofbahia/Four Seasons Budapest.png",
-    includes: [
-      "A 3-night stay in a well-appointed guest room or suite with city or river views — classic Four Seasons comfort meets European grandeur.",
-      "Daily breakfast for two at the hotel's elegant dining venues or lobby restaurant — start your days with sophistication and ease.",
-      "Full access to the hotel's spa & wellness center, including an indoor pool with panoramic views, sauna, steam rooms, whirlpool and luxury treatments using tradition-inspired methods for ultimate relaxation.",
-      "Use of the state-of-the-art fitness centre — cardio and strength equipment available 24/7 for in-house guests.",
-      "Access to signature dining and bar experiences — from the refined brasserie and bar to the elegant lobby lounge, offering European and Hungarian cuisine, cocktails, and a vibrant cultural atmosphere",
-      "Concierge-curated city experiences — whether it's a romantic walking tour by the Danube, a cultural visit to historic sites, or an elegant evening out, the concierge will ensure a seamless stay.",
+      "Discover the romance and charm of Europe with an unforgettable seven-day escape for two to some of the most enchanting cities. Enjoy Paris at Four Seasons Hotel George V, steps from the Champs-Élysées, where timeless elegance meets modern luxury. Experience Budapest at Four Seasons Hotel Gresham Palace, an Art Nouveau masterpiece overlooking the Danube River.",
+    images: [
+      "/soulofbahia/Four Seasons Hotel Paris.png",
+      "/soulofbahia/Four Seasons Budapest.png",
     ],
-    valueNote:
-      "Exact value to be confirmed based on room category, dates, and optional add-ons (spa treatments, special dining, etc.).",
-  },
-  {
-    id: 7,
-    title: "Four Seasons Hotel George V Paris",
-    subtitle: "Parisian Luxury Experience",
-    description:
-      "Indulge in the timeless elegance of Four Seasons Hotel George V Paris, an iconic landmark just steps from the Champs-Élysées. Set within the Golden Triangle at the heart of Paris, this legendary palace hotel blends classic French sophistication with contemporary luxury, world-renowned dining, and extraordinary floral artistry created by Jeff Leatham. From the grand marble interiors to breathtaking city views, every moment at George V is designed to immerse guests in the magic, romance, and beauty of Paris.",
-    image: "/soulofbahia/Four Seasons Hotel Paris.png",
     includes: [
-      "A 3-night stay in a beautifully appointed guest room or suite, showcasing refined Parisian décor and exceptional comfort",
-      "Daily breakfast for two served in your room or at one of the hotel's award-winning restaurants",
-      "Access to the Spa at Four Seasons George V, including indoor pool, vitality pool, sauna, steam room, and state-of-the-art fitness facilities",
-      "Preferred reservations at the hotel's Michelin-starred restaurants, including Le Cinq (three Michelin stars), Le George, and L'Orangerie",
-      "Concierge-curated Parisian experiences, such as private museum visits, river cruises, or personalized shopping routes in the Golden Triangle",
-      "Signature Four Seasons touches, including nightly turndown, luxury amenities, and impeccable service throughout your stay",
+      "Three nights at Four Seasons Hotel George V, Paris",
+      "Three nights at Four Seasons Hotel Gresham Palace, Budapest",
+      "Daily breakfast for two at each hotel",
     ],
-    valueNote:
-      "To be finalized based on accommodation category and travel dates.",
+    value: "$15,000",
+    disclaimer:
+      "This certificate is valid until December 5, 2026; room reservation is subject to availability. Black-out dates may apply and the certificate is non-refundable and non-transferable. The original certificate must be presented, as copies are not accepted. *Four Seasons stays do not need to be combined and can be redeemed separately. Both hotels have the same expiration dates.",
   },
 ];
 
@@ -312,15 +308,41 @@ export default function ArtworkGallery() {
             >
               {/* Image Section */}
               <div className="lg:w-1/2">
-                <div className="relative aspect-4/5 w-full overflow-hidden bg-tertiary">
-                  <Image
-                    src={experience.image}
-                    alt={experience.title}
-                    fill
-                    className="object-cover hover:scale-105 transition-transform duration-700"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                  />
-                </div>
+                {/* Check if experience has multiple images */}
+                {"images" in experience && experience.images ? (
+                  // Display grid of images for combined experiences
+                  <div className="grid grid-cols-1 gap-4">
+                    {experience.images.map((img, imgIdx) => (
+                      <div
+                        key={imgIdx}
+                        className="relative aspect-4/5 w-full overflow-hidden bg-tertiary"
+                      >
+                        <Image
+                          src={img}
+                          alt={`${experience.title} - ${imgIdx + 1}`}
+                          fill
+                          className="object-cover hover:scale-105 transition-transform duration-700"
+                          sizes="(max-width: 1024px) 100vw, 50vw"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  // Display single image for other experiences
+                  <div className="relative aspect-4/5 w-full overflow-hidden bg-tertiary">
+                    <Image
+                      src={
+                        "image" in experience
+                          ? (experience.image as string)
+                          : ""
+                      }
+                      alt={experience.title}
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-700"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                    />
+                  </div>
+                )}
               </div>
 
               {/* Content Section */}
@@ -361,7 +383,23 @@ export default function ArtworkGallery() {
                       </li>
                     ))}
                   </ul>
-                  {experience.valueNote && (
+
+                  {/* Total Market Value */}
+                  {"value" in experience && experience.value && (
+                    <p className="text-lg sm:text-xl font-light text-quinary mt-6">
+                      Total Market Value: {experience.value}
+                    </p>
+                  )}
+
+                  {/* Disclaimer */}
+                  {"disclaimer" in experience && experience.disclaimer && (
+                    <p className="text-xs sm:text-sm font-light leading-relaxed text-quaternary/60 mt-4 italic">
+                      Disclaimer: {experience.disclaimer}
+                    </p>
+                  )}
+
+                  {/* Legacy value note for other experiences */}
+                  {"valueNote" in experience && experience.valueNote && (
                     <p className="text-sm sm:text-base font-light italic text-secondary mt-4">
                       {experience.valueNote}
                     </p>
