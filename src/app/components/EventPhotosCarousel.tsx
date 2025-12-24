@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
+import { IoChevronBack, IoChevronForward } from "react-icons/io5";
 
 const eventPhotos = [
   "/soulofbahiaevent/LG3A7320.JPG",
@@ -116,17 +117,45 @@ const eventPhotos = [
 
 export default function EventPhotosCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
 
-  // Auto-advance carousel every 4 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === eventPhotos.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 4000);
+  const minSwipeDistance = 50;
 
-    return () => clearInterval(interval);
-  }, []);
+  const goToPrevious = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? eventPhotos.length - 1 : prevIndex - 1
+    );
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === eventPhotos.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(0);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      goToNext();
+    } else if (isRightSwipe) {
+      goToPrevious();
+    }
+  };
 
   return (
     <section className="relative w-full bg-white py-12 sm:py-16 md:py-20 lg:py-24">
@@ -142,7 +171,12 @@ export default function EventPhotosCarousel() {
         </div>
 
         {/* Carousel Container */}
-        <div className="relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] w-full overflow-hidden rounded-sm shadow-lg bg-tertiary/5">
+        <div
+          className="relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] w-full overflow-hidden rounded-sm shadow-lg bg-tertiary/5"
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
           {/* Current Image */}
           <div className="relative h-full w-full">
             <Image
@@ -156,7 +190,7 @@ export default function EventPhotosCarousel() {
           </div>
 
           {/* Navigation Buttons */}
-          {/* <button
+          <button
             onClick={goToPrevious}
             className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 bg-primary/70 p-2 sm:p-3 text-white transition-all hover:bg-primary"
             aria-label="Previous image"
@@ -170,7 +204,7 @@ export default function EventPhotosCarousel() {
             aria-label="Next image"
           >
             <IoChevronForward className="w-5 h-5 sm:w-6 sm:h-6" />
-          </button> */}
+          </button>
 
           {/* Image Counter */}
           {/* <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 bg-primary/80 px-4 py-2 rounded-sm">

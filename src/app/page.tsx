@@ -34,11 +34,11 @@ export default function Home() {
         {/* Gala Video Recap */}
         <GalaVideoSection />
 
-        {/* Pillars of Purpose */}
-        <PillarsSection />
-
         {/* Event Photos Carousel */}
         <EventPhotosCarousel />
+        
+        {/* Pillars of Purpose */}
+        <PillarsSection />
 
         {/* Sponsorship Levels - Join the Circle of Giving */}
         {/* <TableLevels /> */}
