@@ -10,6 +10,8 @@ import LegacyFooter from "./components/LegacyFooter";
 import Gallery from "./components/Gallery";
 import HeroBanner from "./components/HeroBanner";
 import ContactForm from "./components/ContactForm";
+import GalaVideoSection from "./components/GalaVideoSection";
+import EventPhotosCarousel from "./components/EventPhotosCarousel";
 
 export default function Home() {
   return (
@@ -30,8 +32,14 @@ export default function Home() {
         {/* Leadership - Guided by Visionaries */}
         <LeadershipSection />
 
+        {/* Gala Video Recap */}
+        <GalaVideoSection />
+
         {/* Pillars of Purpose */}
         <PillarsSection />
+
+        {/* Event Photos Carousel */}
+        <EventPhotosCarousel />
 
         {/* Sponsorship Levels - Join the Circle of Giving */}
         {/* <TableLevels /> */}

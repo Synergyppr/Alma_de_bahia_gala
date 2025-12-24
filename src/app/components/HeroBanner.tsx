@@ -114,46 +114,16 @@ export default function HeroBanner() {
         {/* Content Layer */}
         <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center gap-8 sm:gap-10 md:gap-12 text-center">
-            {/* Tagline */}
-            <p className="text-xl sm:text-2xl md:text-3xl font-light tracking-[0.2em] text-secondary uppercase">
-              Where Soul Meets Purpose
-            </p>
+            {/* Title */}
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-light tracking-[0.2em] text-secondary uppercase">
+              Where Soul Met Purpose
+            </h2>
 
-            {/* Date */}
-            <p className="text-base sm:text-lg md:text-xl font-light tracking-[0.2em] text-primary uppercase">
-              Saturday, December 6, 2025
-            </p>
-
-            {/* Location */}
-            <p className="text-xl sm:text-2xl md:text-3xl font-light tracking-wide text-secondary">
-              Four Seasons Resort | Puerto Rico
-            </p>
-
-            {/* Attire */}
-            <div className="space-y-2">
-              <p className="text-xs sm:text-sm md:text-base font-light tracking-widest text-secondary uppercase">
-                Attire
-              </p>
-              <p className="text-xs sm:text-sm md:text-base font-light tracking-widest text-secondary uppercase">
-                Black Tie
-              </p>
-            </div>
-
-            {/* Description */}
+            {/* Event Description */}
             <p className="max-w-3xl text-xs sm:text-sm md:text-base font-light leading-relaxed tracking-wide text-quaternary/80 px-4">
-              An intimate, meaningful evening where nature, purpose, and
-              community come together. Your presence helps shape the legacy of
-              Alma de Bahía and drives lasting impact for Puerto Rico&apos;s
-              environment and people.
+              On the evening of Saturday, December 6, we gathered beneath the stars at the Four Seasons Resort Puerto Rico for the Alma de Bahía Gala, a night shaped by intention, beauty, and shared purpose. Surrounded by nature and the people who believe deeply in protecting it, the evening unfolded through meaningful conversations, moments of reflection, and a collective commitment to Puerto Rico&apos;s environment and communities.
+              Every detail of the night spoke to connection, to generosity, and to the belief that when community comes together, real impact is possible. We invite you to relive those moments through our video recap and complete photo album, and to continue being part of the legacy that Alma de Bahía is building for our island and its future.
             </p>
-
-            {/* CTA Button */}
-            {/* <a
-              href="#contact"
-              className="group relative inline-flex items-center gap-2 border-b-2 border-primary px-6 py-3 text-sm sm:text-base md:text-lg font-light tracking-widest text-primary transition-all hover:border-secondary hover:text-secondary"
-            >
-              PURCHASE TICKETS HERE
-            </a> */}
           </div>
         </div>
       </div>
