@@ -4,7 +4,6 @@ import MissionSection from "./components/MissionSection";
 import EveningSection from "./components/EveningSection";
 import LeadershipSection from "./components/LeadershipSection";
 import PillarsSection from "./components/PillarsSection";
-import TableLevels from "./components/TableLevels";
 import CircleOfGiving from "./components/CircleOfGiving";
 import LegacyFooter from "./components/LegacyFooter";
 import Gallery from "./components/Gallery";
